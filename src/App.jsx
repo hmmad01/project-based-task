@@ -31,11 +31,11 @@ const teamData = [
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-rose-50 text-gray-800 font-sans">
+    <div className="min-h-screen bg-linear-to-br from-sky-50 via-white to-rose-50 text-gray-800 font-sans">
 
       {/* HEADER */}
       <div className="text-center pt-12 pb-8 px-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-sky-500 to-rose-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold bg-linear-to-r from-sky-500 to-rose-400 bg-clip-text text-transparent">
           PORTOFOLIO PROFILE
         </h1>
         <p className="text-gray-500 mt-2 text-sm">
@@ -49,7 +49,7 @@ export default function App() {
           <a
             key={i}
             href={`/${user.username}`}
-            className="group relative rounded-3xl p-[1px] bg-gradient-to-br from-sky-400 via-indigo-300 to-rose-300 hover:scale-[1.04] transition duration-300"
+            className="group relative rounded-3xl p-px bg-linear-to-br from-sky-400 via-indigo-300 to-rose-300 hover:scale-[1.04] transition duration-300"
           >
             <div className="bg-white rounded-3xl p-6 h-full flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
 

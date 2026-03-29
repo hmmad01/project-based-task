@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     path: "/Hammad",
     element: <Hammad />,
   }
-  
+
 ]);
 
 createRoot(document.getElementById('root')).render(
