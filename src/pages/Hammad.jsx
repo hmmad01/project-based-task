@@ -1,4 +1,4 @@
-import profilImg from "./image/profile.jpg";
+import profilImg from "../image/profile.jpg";
 
 export default function App() {
 
