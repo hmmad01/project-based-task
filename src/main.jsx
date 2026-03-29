@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { createBrowserRouter, BrowserRouter } from "react-router";
 import { RouterProvider } from 'react-router-dom';
 import Hammad from './pages/Hammad.jsx';
+import Bintang from './pages/Bintang.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,12 @@ const router = createBrowserRouter([
   {
     path: "/Hammad",
     element: <Hammad />,
-  }
+  },
+
+  {
+    path: "/Bintang",
+    element: <Bintang />,
+  },
   
 ]);
 

@@ -1,3 +1,4 @@
+import profilImg from "../image/fotoku.jpeg";
 import React from 'react';
 
 const App = () => {
@@ -9,8 +10,8 @@ const App = () => {
     jurusan: "Teknologi Informasi",
     domisili: "Malang, Jawa Timur",
     // Gunakan foto profilmu di folder public. Contoh: "/foto-bintang.jpg"
-    fotoProfil: "/fotoku.jpeg",
-    tentangDiri: "Saya adalah mahasiswa giTeknologi Informasi di Universitas Brawijaya yang memiliki minat besar dalam pengembangan web, khususnya sebagai Full Stack Developer. Saat ini saya sedang aktif mempelajari berbagai teknologi frontend dan backend untuk membangun aplikasi yang interaktif, responsif, dan bermanfaat. Selain fokus pada perkuliahan, saya juga terus mengembangkan kemampuan dengan mengikuti berbagai seminar, pelatihan, dan sertifikasi guna memperkaya pengalaman serta meningkatkan kualitas diri. Saya memiliki semangat belajar yang tinggi, mampu bekerja secara individu maupun tim, serta siap menghadapi tantangan di dunia teknologi yang terus berkembang."
+    fotoProfil: profilImg,
+    tentangDiri: "Saya adalah mahasiswa Teknologi Informasi di Universitas Brawijaya yang memiliki minat besar dalam pengembangan web, khususnya sebagai Full Stack Developer. Saat ini saya sedang aktif mempelajari berbagai teknologi frontend dan backend untuk membangun aplikasi yang interaktif, responsif, dan bermanfaat. Selain fokus pada perkuliahan, saya juga terus mengembangkan kemampuan dengan mengikuti berbagai seminar, pelatihan, dan sertifikasi guna memperkaya pengalaman serta meningkatkan kualitas diri. Saya memiliki semangat belajar yang tinggi, mampu bekerja secara individu maupun tim, serta siap menghadapi tantangan di dunia teknologi yang terus berkembang."
   };
 
   return (
