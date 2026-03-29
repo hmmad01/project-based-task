@@ -1,4 +1,5 @@
 import profilImg from "./image/profile.jpg";
+import profilerImg from "./image/fotoku.jpeg";
 
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ const teamData = [
     name: "Mochammad Bintang Fatahillah",
     role: "253140700111046",
     username: "Bintang",
-    image: "https://i.pravatar.cc/150?img=3",
+    image: profilerImg,
   },
   {
     name: "Raihan Ferriand Allam",

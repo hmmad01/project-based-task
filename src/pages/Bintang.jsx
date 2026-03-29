@@ -1,235 +1,137 @@
-import profilImg from "./image/profile.jpg";
+import profilImg from "../image/fotoku.jpeg";
+import React from 'react';
 
-export default function App() {
-
-  const projects = [
-    {
-      id: 1,
-      title: "Portfolio Website",
-      desc: "Website pribadi menggunakan React + Tailwind",
-      image: "https://cdn.dribbble.com/userupload/24662717/file/original-0aaf935549390202cf42cb036d4725f9.png?resize=2400x1800&vertical=center",
-    },
-    {
-      id: 2,
-      title: "Rental Mobil Website",
-      desc: "Aplikasi penyewaan mobil dengan fitur lengkap",
-      image: "https://cdn.dribbble.com/userupload/7738745/file/original-5b81cb9afc04907bf79a4ce0fd161014.png?resize=752x&vertical=center",
-    },
-    {
-      id: 3,
-      title: "Landing Page UI",
-      desc: "Desain landing page modern dan responsif",
-      image: "https://cdn.dribbble.com/userupload/46013368/file/fb886369183310be03100c615c98b12a.png?resize=1504x1128&vertical=center",
-    },
-  ];
+const App = () => {
+  const profileData = {
+    namaLengkap: "Mochammad Bintang Fatahillah",
+    universitas: "Universitas Brawijaya",
+    fakultas: "Fakultas Vokasi",
+    kelas: "T2B",
+    jurusan: "Teknologi Informasi",
+    domisili: "Malang, Jawa Timur",
+    // Gunakan foto profilmu di folder public. Contoh: "/foto-bintang.jpg"
+    fotoProfil: profilImg,
+    tentangDiri: "Saya adalah mahasiswa Teknologi Informasi di Universitas Brawijaya yang memiliki minat besar dalam pengembangan web, khususnya sebagai Full Stack Developer. Saat ini saya sedang aktif mempelajari berbagai teknologi frontend dan backend untuk membangun aplikasi yang interaktif, responsif, dan bermanfaat. Selain fokus pada perkuliahan, saya juga terus mengembangkan kemampuan dengan mengikuti berbagai seminar, pelatihan, dan sertifikasi guna memperkaya pengalaman serta meningkatkan kualitas diri. Saya memiliki semangat belajar yang tinggi, mampu bekerja secara individu maupun tim, serta siap menghadapi tantangan di dunia teknologi yang terus berkembang."
+  };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 p-6 select-none">
+    <div className="min-h-screen bg-[#f0f2f5] flex items-center justify-center p-4 md:p-8 font-sans text-slate-900">
+      
+      {/* Background Decor */}
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-200 rounded-full blur-[100px] opacity-50"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-purple-200 rounded-full blur-[100px] opacity-50"></div>
+      </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-
-{/* SIDEBAR */}
-        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg p-6 h-fit md:sticky md:top-6">
-
-          <div className="flex flex-col items-center text-center">
-            <img
-              src={profilImg}
-              className="w-28 h-28 rounded-full border-4 border-white shadow-lg 
-              hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-            />
-
-            <h1 className="mt-4 text-xl font-bold">Abdulloh Hammad</h1>
-            <p className="text-gray-500 text-sm">
-              Mahasiswa Teknologi Informasi
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        {/* LEFT COLUMN: HERO CARD (4 Cols) */}
+        <div className="md:col-span-4 space-y-6">
+          <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 border border-white flex flex-col items-center text-center">
+            <div className="relative mb-6">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-[2rem] rotate-6 opacity-20"></div>
+              <img 
+                src={profileData.fotoProfil} 
+                alt="Profile" 
+                className="w-40 h-40 rounded-[2rem] object-cover relative z-10 shadow-lg border-4 border-white"
+              />
+            </div>
+            <h1 className="text-2xl font-black tracking-tight leading-tight mb-2">
+              {profileData.namaLengkap}
+            </h1>
+            <p className="text-blue-600 font-bold text-sm uppercase tracking-widest mb-6">
+              {profileData.jurusan}
             </p>
-
-            <span className="mt-2 text-xs bg-green-100 text-green-600 px-3 py-1 rounded-full animate-pulse">
-              ● Open to Learn
-            </span>
+            <div className="w-full pt-6 border-t border-slate-100 space-y-3">
+              <div className="flex items-center gap-3 text-slate-600 bg-slate-50 p-3 rounded-2xl">
+                <span className="text-lg">📍</span>
+                <span className="text-sm font-semibold">{profileData.domisili}</span>
+              </div>
+            </div>
           </div>
 
-{/* CONTACT SIDEBAR */}
-          <div className="mt-6 space-y-2 w-full">
+          {/* Social Card */}
+          <div className="bg-blue-600 rounded-[2rem] p-6 text-white shadow-lg shadow-blue-600/30 relative overflow-hidden">
+  <div className="font-bold mb-4 text-lg">Connect with me</div>
 
-            <a href="https://linkedin.com/in/abdulloh-hammad-b03547377" target="_blank"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              💼 LinkedIn
-            </a>
+  <div className="flex flex-col gap-3">
+    
+    {/* Instagram */}
+    <a 
+      href="https://instagram.com/bintangfth26" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white hover:text-blue-600 transition-all rounded-xl p-3 font-semibold hover:scale-105 active:scale-95"
+    >
+      📸 Instagram
+    </a>
 
-            <a href="https://github.com/hmmad01" target="_blank"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              💻 GitHub
-            </a>
+    {/* Email */}
+    <a 
+      href="mailto:bintangfatahillah12@gmail.com"
+      className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white hover:text-blue-600 transition-all rounded-xl p-3 font-semibold hover:scale-105 active:scale-95"
+    >
+      ✉️ Email
+    </a>
 
-            <a href="mailto:awansby4@gmail.com"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              📧 Email
-            </a>
+    {/* LinkedIn */}
+    <a 
+      href="https://www.linkedin.com/in/bintangfth" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white hover:text-blue-600 transition-all rounded-xl p-3 font-semibold hover:scale-105 active:scale-95"
+    >
+      🔗 LinkedIn
+    </a>
 
-          </div>
+  </div>
+
+  {/* Glow effect */}
+  <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+</div>
         </div>
 
-{/* MAIN CONTENT */}
-        <div className="md:col-span-2 space-y-6">
-
-          {/* HEADER */}
-          <div className="h-44 rounded-2xl overflow-hidden relative shadow">
-            <img
-              src="https://i.pinimg.com/1200x/14/3b/89/143b89350d39d40ffe945dbe3f73fe2f.jpg"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-linear-to-r from-black/60 to-transparent"></div>
-
-            <div className="absolute bottom-4 left-6 text-white">
-              <h2 className="text-xl font-bold">Welcome</h2>
-              <p className="text-sm opacity-80">My personal portfolio</p>
+        {/* RIGHT COLUMN: BENTO GRID (8 Cols) */}
+        <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Universitas Card (Full Width) */}
+          <div className="md:col-span-2 bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white shadow-xl shadow-blue-900/5 flex items-center gap-6 group hover:bg-white transition-all">
+            <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+              🏛️
+            </div>
+            <div>
+              <p className="text-xs font-black text-slate-400 uppercase tracking-widest">University</p>
+              <h2 className="text-2xl font-extrabold text-slate-800">{profileData.universitas}</h2>
+              <p className="text-slate-500 font-medium">{profileData.fakultas}</p>
             </div>
           </div>
-{/* INFO + CONTACT */}
-          <div className="grid md:grid-cols-2 gap-6">
 
-            {/* INFO */}
-            <div className="bg-white p-6 rounded-2xl shadow 
-            hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-            transition-all duration-300 cursor-pointer">
-
-              <h2 className="font-semibold mb-5">Informasi</h2>
-
-              <div className="space-y-4">
-
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
-                  🎓
-                  <div>
-                    <p className="text-xs text-gray-400">Prodi</p>
-                    <p className="font-medium">Teknologi Informasi</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
-                  📚
-                  <div>
-                    <p className="text-xs text-gray-400">Kelas</p>
-                    <p className="font-medium">T2B</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
-                  📍
-                  <div>
-                    <p className="text-xs text-gray-400">Domisili</p>
-                    <p className="font-medium">Malang</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-{/* CONTACT */}
-            <div className="bg-white p-6 rounded-2xl shadow 
-            hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-            transition-all duration-300 cursor-pointer">
-
-              <h2 className="font-semibold mb-5">Connect</h2>
-
-              <div className="space-y-3">
-
-                <a href="https://linkedin.com/in/abdulloh-hammad-b03547377" target="_blank"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>💼 LinkedIn</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
-                <a href="https://github.com/hmmad01" target="_blank"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>💻 GitHub</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
-                <a href="mailto:awansby4@gmail.com"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>📧 Email</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
-              </div>
-            </div>
-
+          {/* Kelas Card */}
+          <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white shadow-xl shadow-blue-900/5">
+            <div className="text-2xl mb-4">✍️</div>
+            <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Class</p>
+            <h3 className="text-xl font-extrabold text-slate-800">{profileData.kelas}</h3>
           </div>
 
-{/* ABOUT */}
-          <div className="bg-white p-6 rounded-2xl shadow 
-          hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-          transition-all duration-300 cursor-pointer">
+          {/* Tech Stack/Skill Mini Card */}
+          <div className="bg-[#1e293b] rounded-[2.5rem] p-8 text-white shadow-xl">
+            <div className="text-2xl mb-4">💻</div>
+            <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Expertise</p>
+            <h3 className="text-xl font-extrabold">UI/UX Designer</h3>
+          </div>
 
-            <h2 className="font-semibold mb-2">Tentang Saya</h2>
-            <p className="text-gray-600 text-sm leading-relaxed text-justify">
-              Saya adalah mahasiswa Teknologi Informasi yang memiliki minat dalam pengembangan web dan desain antarmuka. Saya tertarik membangun tampilan yang tidak hanya berfungsi dengan baik, tetapi juga nyaman dan menarik bagi pengguna. Saat ini saya terus mengembangkan kemampuan dalam HTML, CSS, JavaScript, dan Tailwind CSS untuk menciptakan website yang modern dan responsif.
+          {/* ABOUT ME CARD (Full Width) */}
+          <div className="md:col-span-2 bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-10 border border-white shadow-xl shadow-blue-900/5 relative overflow-hidden">
+            <h3 className="text-2xl font-black mb-6 flex items-center gap-3">
+              <span className="w-8 h-1 bg-blue-600 rounded-full"></span>
+              About Me
+            </h3>
+            <p className="text-slate-600 leading-relaxed font-medium text-justify relative z-10 italic">
+              "{profileData.tentangDiri}"
             </p>
-          </div>
-
-{/* SKILLS */}
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h2 className="font-semibold mb-4">Keahlian</h2>
-
-            <div className="flex flex-wrap gap-3">
-              {["HTML", "CSS", "JavaScript", "Tailwind", "React"].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 rounded-full text-sm bg-gray-100 text-gray-700 
-                  hover:bg-indigo-500 hover:text-white 
-                  hover:shadow-md hover:-translate-y-0.5 
-                  active:scale-95 transition-all duration-300 cursor-pointer"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-{/* PROJECT */}
-          <div>
-            <div className="flex justify-between mb-3">
-              <h2 className="font-semibold">Project</h2>
-              <span className="text-sm text-gray-500">Swipe →</span>
-            </div>
-
-            <div className="flex gap-4 overflow-x-auto pb-3">
-
-              {projects.map((project) => (
-                <div key={project.id}
-                  className="min-w-65 bg-white rounded-xl shadow 
-                  hover:shadow-xl hover:-translate-y-1 active:scale-[0.97]
-                  transition-all duration-300 overflow-hidden group cursor-pointer">
-
-                  <div className="relative">
-                    <img
-                      src={project.image}
-                      className="h-36 w-full object-cover object-center group-hover:scale-110 transition"
-                    />
-
-                    <div className="absolute inset-0 bg-black/40 opacity-0 
-                    group-hover:opacity-100 transition flex items-center justify-center">
-                      <button className="bg-white px-3 py-1 text-sm rounded 
-                      hover:bg-gray-100 active:scale-95 transition">
-                        Detail
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="p-3">
-                    <h3 className="font-semibold text-sm">{project.title}</h3>
-                    <p className="text-xs text-gray-500">{project.desc}</p>
-                  </div>
-
-                </div>
-              ))}
-
+            {/* Dekorasi watermark nama */}
+            <div className="absolute -bottom-10 -right-10 text-9xl font-black text-slate-50 -z-0 select-none">
+              BINTANG
             </div>
           </div>
 
@@ -237,4 +139,6 @@ export default function App() {
       </div>
     </div>
   );
-}
+};
+
+export default App;
