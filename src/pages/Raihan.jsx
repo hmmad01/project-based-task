@@ -1,3 +1,4 @@
+import fotoRaihan from '../image/raihan.jpg';
 import React, { useState, useEffect } from 'react';
 import { Mail, Link, Folder, Briefcase, MapPin, ShieldCheck, Download, Check, Terminal, GraduationCap, MonitorSmartphone, Activity, Globe } from 'lucide-react';
 
@@ -367,7 +368,7 @@ const ProfileRaihan = () => {
         <section style={{ ...styles.bentoBox, ...styles.profilePanel }} className="bento-hover">
           <div style={styles.avatarContainer}>
             <div style={styles.avatarGlow} />
-            <img src="/foto-profil.jpg" alt="Raihan Feriand Allam" style={styles.avatar} />
+            <img src={fotoRaihan} alt="Raihan Feriand Allam" style={styles.avatar} />
           </div>
           <div style={styles.badge}>
             <ShieldCheck size={14} style={{ marginRight: '6px' }} /> Profil Terverifikasi

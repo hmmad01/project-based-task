@@ -1,10 +1,6 @@
-import ProfileRaihan from './pages/Raihan';
 import profilImg from "./image/profile.jpg";
 import profilerImg from "./image/fotoku.jpeg";
-
-import { useState } from "react";
-// TAMBAHAN DARI SAYA: Mengambil fitur Router untuk navigasi
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const teamData = [
   {
@@ -33,11 +29,9 @@ const teamData = [
   },
 ];
 
-// TAMBAHAN DARI SAYA: Mengubah nama fungsi ini jadi 'Home' agar bisa dijadikan halaman utama
-function Home() {
+export default function App() {
   return (
     <div className="min-h-screen bg-linear-to-br from-sky-50 via-white to-rose-50 text-gray-800 font-sans">
-
       {/* HEADER */}
       <div className="text-center pt-12 pb-8 px-4">
         <h1 className="text-4xl font-bold bg-linear-to-r from-sky-500 to-rose-400 bg-clip-text text-transparent">
@@ -51,14 +45,12 @@ function Home() {
       {/* GRID */}
       <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {teamData.map((user, i) => (
-          <a
+          <Link
             key={i}
-            href={`/${user.username}`}
+            to={`/${user.username}`}
             className="group relative rounded-3xl p-px bg-linear-to-br from-sky-400 via-indigo-300 to-rose-300 hover:scale-[1.04] transition duration-300"
           >
             <div className="bg-white rounded-3xl p-6 h-full flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
-
-              {/* Avatar */}
               <div className="relative mb-4">
                 <img
                   src={user.image}
@@ -66,17 +58,13 @@ function Home() {
                 />
                 <div className="absolute inset-0 rounded-full bg-sky-300 opacity-0 group-hover:opacity-30 blur-md transition" />
               </div>
-
-              {/* Info */}
               <h2 className="text-lg font-semibold">{user.name}</h2>
               <p className="text-gray-500 text-sm mb-4">{user.role}</p>
-
-              {/* CTA */}
               <div className="mt-auto text-xs font-medium text-sky-500 group-hover:text-rose-400 transition">
                 Buka Profile →
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -85,20 +73,5 @@ function Home() {
         Bangun kerja sama tim dan kolaborasi 🚀
       </div>
     </div>
-  );
-}
-
-// TAMBAHAN DARI SAYA: Ini adalah CONFIG ROUTER yang diminta Hammad
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Jalur ini menampilkan halaman utama (Grid Tim) */}
-        <Route path="/" element={<Home />} />
-        
-        {/* Jalur ini menampilkan profil mahakaryamu saat di-klik! */}
-        <Route path="/Raihan" element={<ProfileRaihan />} />
-      </Routes>
-    </Router>
   );
 }

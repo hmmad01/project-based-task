@@ -7,20 +7,26 @@ import { RouterProvider } from 'react-router-dom';
 import Hammad from './pages/Hammad.jsx';
 import Bintang from './pages/Bintang.jsx';
 
+// TAMBAHAN: Import file mahakaryamu
+import ProfileRaihan from './pages/Raihan.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
-
   {
     path: "/Hammad",
     element: <Hammad />,
   },
-  
   {
     path: "/Bintang",
     element: <Bintang />
+  },
+  // TAMBAHAN: Rute agar profilmu bisa dibuka dari halaman utama
+  {
+    path: "/Raihan",
+    element: <ProfileRaihan />
   },
 ]);
 
