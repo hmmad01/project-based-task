@@ -1,7 +1,10 @@
+import ProfileRaihan from './pages/Raihan';
 import profilImg from "./image/profile.jpg";
 import profilerImg from "./image/fotoku.jpeg";
 
 import { useState } from "react";
+// TAMBAHAN DARI SAYA: Mengambil fitur Router untuk navigasi
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const teamData = [
   {
@@ -23,14 +26,15 @@ const teamData = [
     image: profilerImg,
   },
   {
-    name: "Raihan Ferriand Allam",
+    name: "Raihan Feriand Allam",
     role: "253140701111011",
     username: "Raihan",
     image: "https://i.pravatar.cc/150?img=4",
   },
 ];
 
-export default function App() {
+// TAMBAHAN DARI SAYA: Mengubah nama fungsi ini jadi 'Home' agar bisa dijadikan halaman utama
+function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-sky-50 via-white to-rose-50 text-gray-800 font-sans">
 
@@ -81,5 +85,20 @@ export default function App() {
         Bangun kerja sama tim dan kolaborasi 🚀
       </div>
     </div>
+  );
+}
+
+// TAMBAHAN DARI SAYA: Ini adalah CONFIG ROUTER yang diminta Hammad
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Jalur ini menampilkan halaman utama (Grid Tim) */}
+        <Route path="/" element={<Home />} />
+        
+        {/* Jalur ini menampilkan profil mahakaryamu saat di-klik! */}
+        <Route path="/Raihan" element={<ProfileRaihan />} />
+      </Routes>
+    </Router>
   );
 }
