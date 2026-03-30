@@ -2,7 +2,7 @@ import React from 'react';
 // 1. IMPORT GAMBAR DARI FOLDER YANG BENAR
 import headerBg from '../image/header-bg.png'; // Perhatikan ekstensinya .png
 import fotoProfil from '../image/foto-profil.JPG'; // Perhatikan huruf besarnya .JPG
-
+import cvNathan from '../CV_NATHANAEL.pdf'; // Pastikan file CV_NATHANAEL.pdf ada di folder src
 const ProfileNathanael = () => {
   const hardSkills = [
     { name: 'UI/UX Design (Figma)', level: '90%' },
