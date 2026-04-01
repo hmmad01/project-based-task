@@ -1,8 +1,8 @@
 import React from 'react';
-// 1. IMPORT GAMBAR DARI FOLDER YANG BENAR
-import headerBg from '../image/header-bg.png'; // Perhatikan ekstensinya .png
-import fotoProfil from '../image/foto-profil.JPG'; // Perhatikan huruf besarnya .JPG
-import cvNathan from '../CV_NATHANAEL.pdf'; // Pastikan file CV_NATHANAEL.pdf ada di folder src
+import headerBg from '../image/header-bg.png'; 
+import fotoProfil from '../image/foto-profil.JPG'; 
+import cvNathan from '../CV_NATHANAEL.pdf';
+
 const ProfileNathanael = () => {
   const hardSkills = [
     { name: 'UI/UX Design (Figma)', level: '90%' },
@@ -15,27 +15,25 @@ const ProfileNathanael = () => {
   return (
     <div className="min-h-screen bg-slate-100 font-sans selection:bg-indigo-200 selection:text-indigo-900 pb-16 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
       
-{/* --- HEADER PANORAMA (PERBAIKAN: AGAR GAMBAR FULL & TIDAK TERPOTONG) --- */}
+      {/* Header Background */}
       <div 
         className="w-full h-64 sm:h-80 md:h-[450px] bg-slate-900 relative bg-contain bg-center bg-no-repeat transition-all duration-500"
         style={{ backgroundImage: `url(${headerBg})` }} 
       >
-        {/* Gradient disesuaikan agar transisi ke konten bawah tetap smooth */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-slate-100 pointer-events-none"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 pointer-events-none"></div>
       </div>
 
-      {/* --- MAIN CONTENT CONTAINER --- */}
+      {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-44 relative z-10">
         <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl p-6 sm:p-10 lg:p-12 border border-white/50 transition-all duration-300">
           
-          {/* --- TOP SECTION: FOTO (KIRI) & DOWNLOAD CV (KANAN) --- */}
+          {/* Profile Header & Action */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end -mt-28 md:-mt-36 mb-8 gap-6 lg:gap-0">
             
-            {/* KIRI: Foto Profil */}
+            {/* Profile Picture */}
             <div className="relative group cursor-pointer shrink-0">
               <img
-                // 3. GUNAKAN VARIABEL FOTO PROFIL
                 src={fotoProfil}
                 alt="Foto Profil Nathanael Eleazar Handata"
                 className="w-44 h-44 md:w-56 md:h-56 rounded-full border-[6px] md:border-[8px] border-white object-cover shadow-2xl transition-all duration-500 group-hover:scale-105 bg-slate-100 relative z-10"
@@ -46,16 +44,16 @@ const ProfileNathanael = () => {
               </div>
             </div>
 
-            {/* KANAN: Tombol Aksi Utama */}
+            {/* Download Action */}
             <div className="flex w-full lg:w-auto lg:pb-6">
-              <a href="/CV_NATHANAEL.pdf" download className="w-full lg:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/40 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+              <a href={cvNathan} download className="w-full lg:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/40 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Download CV
               </a>
             </div>
           </div>
 
-          {/* --- IDENTITAS UTAMA --- */}
+          {/* Identity Section */}
           <div className="border-b border-slate-100 pb-8 text-left">
             <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">Nathanael Eleazar Handata</h1>
             <p className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mt-1">
@@ -78,7 +76,7 @@ const ProfileNathanael = () => {
             </div>
           </div>
 
-          {/* --- QUICK STATS --- */}
+          {/* Statistics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 mb-12">
             {[
               { num: '3+', label: 'Tahun Kepemimpinan' },
@@ -93,13 +91,13 @@ const ProfileNathanael = () => {
             ))}
           </div>
 
-          {/* --- MAIN CONTENT GRID --- */}
+          {/* Main Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
             
-            {/* === KOLOM KIRI === */}
+            {/* Sidebar (Left Column) */}
             <div className="lg:col-span-1 space-y-10">
               
-              {/* CONTACT ME SECTION */}
+              {/* Contact Information */}
               <div className="bg-gradient-to-br from-slate-900 to-blue-900 p-8 rounded-[2rem] shadow-xl shadow-slate-900/30 text-white relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-bl-[4rem] transition-transform duration-500 group-hover:scale-125 pointer-events-none"></div>
                 
@@ -133,7 +131,6 @@ const ProfileNathanael = () => {
                     </div>
                   </a>
 
-                  {/* INSTAGRAM BUTTON */}
                   <a href="https://instagram.com/nthanaellll" target="_blank" rel="noreferrer" className="flex items-center gap-4 bg-white/10 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] p-3.5 rounded-2xl transition-all duration-300 border border-white/10 group/btn transform hover:-translate-y-1">
                     <div className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] group-hover/btn:bg-white text-white group-hover/btn:text-[#ee2a7b] p-2 rounded-xl transition-colors">
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -156,7 +153,7 @@ const ProfileNathanael = () => {
                 </div>
               </div>
 
-              {/* Hard Skills */}
+              {/* Technical Skills */}
               <div className="bg-white p-7 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/40 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-full opacity-50 transition-transform group-hover:scale-110 pointer-events-none"></div>
                 <h3 className="text-xl font-black text-slate-800 mb-6 flex items-center gap-2 relative z-10">
@@ -183,10 +180,10 @@ const ProfileNathanael = () => {
 
             </div>
 
-            {/* === KOLOM KANAN === */}
+            {/* Main Content (Right Column) */}
             <div className="lg:col-span-2 space-y-12">
               
-              {/* Tentang Diri (WAJIB MODUL > 100 Kata) */}
+              {/* About Me Section */}
               <div className="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-blue-50/50 transition-all duration-300">
                 <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
                   <span className="w-10 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full group-hover:w-16 transition-all duration-500"></span>
@@ -205,7 +202,7 @@ const ProfileNathanael = () => {
                 </div>
               </div>
 
-              {/* Timeline Organisasi */}
+              {/* Organization Timeline */}
               <div>
                 <h2 className="text-2xl font-black text-slate-900 mb-8 flex items-center gap-3">
                   <div className="p-2.5 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl text-blue-600 shadow-sm">
@@ -216,7 +213,7 @@ const ProfileNathanael = () => {
                 
                 <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-[15px] before:w-1 before:bg-gradient-to-b before:from-blue-500 before:to-slate-200 before:rounded-full">
                   
-                  {/* Item 1 */}
+                  {/* Experience Item 1 */}
                   <div className="relative pl-12 group">
                     <div className="absolute left-0 top-1.5 w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -231,7 +228,7 @@ const ProfileNathanael = () => {
                     </div>
                   </div>
 
-                  {/* Item 2 */}
+                  {/* Experience Item 2 */}
                   <div className="relative pl-12 group">
                     <div className="absolute left-0 top-1.5 w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -246,7 +243,7 @@ const ProfileNathanael = () => {
                     </div>
                   </div>
 
-                  {/* Item 3 */}
+                  {/* Experience Item 3 */}
                   <div className="relative pl-12 group">
                     <div className="absolute left-0 top-1.5 w-8 h-8 bg-slate-300 rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110"></div>
                     <div className="bg-white p-7 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
