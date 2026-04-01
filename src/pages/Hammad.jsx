@@ -1,6 +1,14 @@
 import profilImg from "../image/profile.jpg";
+import { PageLayout, SectionCard, SkillBar, ContactButton } from "../components";
 
-export default function App() {
+export default function ProfileHammad() {
+  const skills = [
+    { name: "HTML", level: 80, color: "rose" },
+    { name: "CSS", level: 75, color: "blue" },
+    { name: "JavaScript", level: 70, color: "gold" },
+    { name: "Tailwind", level: 75, color: "cyan" },
+    { name: "React", level: 65, color: "purple" },
+  ];
 
   const projects = [
     {
@@ -24,82 +32,58 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 p-6 select-none">
+    <PageLayout showNav={true} showFooter={true}>
+      <div className="grid md:grid-cols-3 gap-6">
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        {/* SIDEBAR */}
+        <div className="space-y-6 md:sticky md:top-24 h-fit">
+          {/* Profile Card */}
+          <SectionCard hoverable={false}>
+            <div className="flex flex-col items-center text-center">
+              <img
+                src={profilImg}
+                alt="Abdulloh Hammad"
+                className="w-28 h-28 rounded-full border-4 border-white shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+              />
+              <h1 className="mt-4 text-xl font-bold">Abdulloh Hammad</h1>
+              <p className="text-gray-500 text-sm">Mahasiswa Teknologi Informasi</p>
+              <span className="mt-2 text-xs bg-green-100 text-green-600 px-3 py-1 rounded-full animate-pulse">
+                ● Open to Learn
+              </span>
+            </div>
+          </SectionCard>
 
-{/* SIDEBAR */}
-        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg p-6 h-fit md:sticky md:top-6">
-
-          <div className="flex flex-col items-center text-center">
-            <img
-              src={profilImg}
-              className="w-28 h-28 rounded-full border-4 border-white shadow-lg 
-              hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-            />
-
-            <h1 className="mt-4 text-xl font-bold">Abdulloh Hammad</h1>
-            <p className="text-gray-500 text-sm">
-              Mahasiswa Teknologi Informasi
-            </p>
-
-            <span className="mt-2 text-xs bg-green-100 text-green-600 px-3 py-1 rounded-full animate-pulse">
-              ● Open to Learn
-            </span>
-          </div>
-
-{/* CONTACT SIDEBAR */}
-          <div className="mt-6 space-y-2 w-full">
-
-            <a href="https://linkedin.com/in/abdulloh-hammad-b03547377" target="_blank"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              💼 LinkedIn
-            </a>
-
-            <a href="https://github.com/hmmad01" target="_blank"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              💻 GitHub
-            </a>
-
-            <a href="mailto:awansby4@gmail.com"
-              className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm 
-              hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer">
-              📧 Email
-            </a>
-
-          </div>
+          {/* Contact Sidebar */}
+          <SectionCard title="Connect" icon="🔗" variant="gradient">
+            <div className="space-y-3">
+              <ContactButton platform="LinkedIn" url="https://linkedin.com/in/abdulloh-hammad-b03547377" label="abdulloh-hammad" color="blue" variant="dark" />
+              <ContactButton platform="GitHub" url="https://github.com/hmmad01" label="hmmad01" color="slate" variant="dark" />
+              <ContactButton platform="Email" url="mailto:awansby4@gmail.com" label="awansby4@gmail.com" color="rose" variant="dark" />
+            </div>
+          </SectionCard>
         </div>
 
-{/* MAIN CONTENT */}
+        {/* MAIN CONTENT */}
         <div className="md:col-span-2 space-y-6">
 
-          {/* HEADER */}
+          {/* HEADER BANNER */}
           <div className="h-44 rounded-2xl overflow-hidden relative shadow">
             <img
               src="https://i.pinimg.com/1200x/14/3b/89/143b89350d39d40ffe945dbe3f73fe2f.jpg"
               className="w-full h-full object-cover"
+              alt="Banner"
             />
-            <div className="absolute inset-0 bg-linear-to-r from-black/60 to-transparent"></div>
-
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-6 text-white">
               <h2 className="text-xl font-bold">Welcome</h2>
               <p className="text-sm opacity-80">My personal portfolio</p>
             </div>
           </div>
-{/* INFO + CONTACT */}
+
+          {/* INFO + CONTACT GRID */}
           <div className="grid md:grid-cols-2 gap-6">
-
-            {/* INFO */}
-            <div className="bg-white p-6 rounded-2xl shadow 
-            hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-            transition-all duration-300 cursor-pointer">
-
-              <h2 className="font-semibold mb-5">Informasi</h2>
-
+            <SectionCard title="Informasi" icon="📋">
               <div className="space-y-4">
-
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
                   🎓
                   <div>
@@ -107,7 +91,6 @@ export default function App() {
                     <p className="font-medium">Teknologi Informasi</p>
                   </div>
                 </div>
-
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
                   📚
                   <div>
@@ -115,7 +98,6 @@ export default function App() {
                     <p className="font-medium">T2B</p>
                   </div>
                 </div>
-
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition">
                   📍
                   <div>
@@ -123,118 +105,60 @@ export default function App() {
                     <p className="font-medium">Malang</p>
                   </div>
                 </div>
-
               </div>
-            </div>
+            </SectionCard>
 
-{/* CONTACT */}
-            <div className="bg-white p-6 rounded-2xl shadow 
-            hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-            transition-all duration-300 cursor-pointer">
-
-              <h2 className="font-semibold mb-5">Connect</h2>
-
+            <SectionCard title="Connect" icon="🤝">
               <div className="space-y-3">
-
-                <a href="https://linkedin.com/in/abdulloh-hammad-b03547377" target="_blank"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>💼 LinkedIn</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
-                <a href="https://github.com/hmmad01" target="_blank"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>💻 GitHub</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
-                <a href="mailto:awansby4@gmail.com"
-                  className="flex justify-between p-3 rounded-lg hover:bg-gray-100 
-                  transition group cursor-pointer">
-                  <span>📧 Email</span>
-                  <span className="group-hover:translate-x-1 transition">→</span>
-                </a>
-
+                <ContactButton platform="LinkedIn" url="https://linkedin.com/in/abdulloh-hammad-b03547377" label="abdulloh-hammad" color="blue" variant="light" />
+                <ContactButton platform="GitHub" url="https://github.com/hmmad01" label="hmmad01" color="slate" variant="light" />
+                <ContactButton platform="Email" url="mailto:awansby4@gmail.com" label="awansby4@gmail.com" color="rose" variant="light" />
               </div>
-            </div>
-
+            </SectionCard>
           </div>
 
-{/* ABOUT */}
-          <div className="bg-white p-6 rounded-2xl shadow 
-          hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]
-          transition-all duration-300 cursor-pointer">
-
-            <h2 className="font-semibold mb-2">Tentang Saya</h2>
+          {/* ABOUT - using SectionCard */}
+          <SectionCard title="Tentang Saya" icon="👤">
             <p className="text-gray-600 text-sm leading-relaxed text-justify">
               Saya adalah mahasiswa Teknologi Informasi yang memiliki minat dalam pengembangan web dan desain antarmuka. Saya tertarik membangun tampilan yang tidak hanya berfungsi dengan baik, tetapi juga nyaman dan menarik bagi pengguna. Saat ini saya terus mengembangkan kemampuan dalam HTML, CSS, JavaScript, dan Tailwind CSS untuk menciptakan website yang modern dan responsif.
             </p>
-          </div>
+          </SectionCard>
 
-{/* SKILLS */}
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h2 className="font-semibold mb-4">Keahlian</h2>
-
-            <div className="flex flex-wrap gap-3">
-              {["HTML", "CSS", "JavaScript", "Tailwind", "React"].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 rounded-full text-sm bg-gray-100 text-gray-700 
-                  hover:bg-indigo-500 hover:text-white 
-                  hover:shadow-md hover:-translate-y-0.5 
-                  active:scale-95 transition-all duration-300 cursor-pointer"
-                >
-                  {skill}
-                </span>
+          {/* SKILLS - using SectionCard + SkillBar */}
+          <SectionCard title="Keahlian" icon="💻">
+            <div className="space-y-4">
+              {skills.map((skill) => (
+                <SkillBar key={skill.name} name={skill.name} level={skill.level} color={skill.color} />
               ))}
             </div>
-          </div>
+          </SectionCard>
 
-{/* PROJECT */}
+          {/* PROJECT */}
           <div>
             <div className="flex justify-between mb-3">
               <h2 className="font-semibold">Project</h2>
               <span className="text-sm text-gray-500">Swipe →</span>
             </div>
-
             <div className="flex gap-4 overflow-x-auto pb-3">
-
               {projects.map((project) => (
-                <div key={project.id}
-                  className="min-w-65 bg-white rounded-xl shadow 
-                  hover:shadow-xl hover:-translate-y-1 active:scale-[0.97]
-                  transition-all duration-300 overflow-hidden group cursor-pointer">
-
+                <div key={project.id} className="min-w-65 bg-white rounded-xl shadow hover:shadow-xl hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 overflow-hidden group cursor-pointer">
                   <div className="relative">
-                    <img
-                      src={project.image}
-                      className="h-36 w-full object-cover object-center group-hover:scale-110 transition"
-                    />
-
-                    <div className="absolute inset-0 bg-black/40 opacity-0 
-                    group-hover:opacity-100 transition flex items-center justify-center">
-                      <button className="bg-white px-3 py-1 text-sm rounded 
-                      hover:bg-gray-100 active:scale-95 transition">
-                        Detail
-                      </button>
+                    <img src={project.image} className="h-36 w-full object-cover object-center group-hover:scale-110 transition" alt={project.title} />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                      <button className="bg-white px-3 py-1 text-sm rounded hover:bg-gray-100 active:scale-95 transition">Detail</button>
                     </div>
                   </div>
-
                   <div className="p-3">
                     <h3 className="font-semibold text-sm">{project.title}</h3>
                     <p className="text-xs text-gray-500">{project.desc}</p>
                   </div>
-
                 </div>
               ))}
-
             </div>
           </div>
 
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
